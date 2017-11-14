@@ -258,6 +258,7 @@ ADD_SUBDIRECTORY(pvr)
 ADD_SUBDIRECTORY(osc)
 ADD_SUBDIRECTORY(trk)
 
+ADD_SUBDIRECTORY(s3c)
 ####################################################
 #
 # Device integration plugins
