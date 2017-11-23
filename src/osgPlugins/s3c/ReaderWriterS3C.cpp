@@ -34,14 +34,15 @@ class ReaderWriterS3C : public osgDB::ReaderWriter
 
             osg::Group* g = new osg::Group;
             std::string dir = osgDB::getFilePath(fileName);
-            std::string dataPath = dir + "\\Data\\";
+            std::string dataPath = dir + "/Data/";
             osgDB::DirectoryContents dirNames = osgDB::getDirectoryContents(dataPath);
             for (unsigned int i = 0; i < dirNames.size(); ++i)
             {
                 dir = dirNames[i];
-                if ( dir == "." )
+                if ( ( dir == "." )|| (dir == "..") )
                     continue;
-                std::string osgbFile = dataPath + dir + "\\" + dir + ".osgb";
+                std::string osgbFile = dataPath + dir + "/" + dir + ".osgb";
+		std::cout << osgbFile << std::endl;
                 g->addChild(osgDB::readNodeFile(osgbFile));
             }
 
